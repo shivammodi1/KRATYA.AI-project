@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Chatbot</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Animated Background -->
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+
+        <!-- Main Chat Interface -->
+        <main class="chat-wrapper glass-panel">
+            <header class="chat-header">
+                <div class="header-info">
+                    <div class="bot-avatar">
+                        <div class="pulse-ring"></div>
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="header-text">
+                        <h1>Nova AI</h1>
+                        <p class="status">Online <span class="status-dot"></span></p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="toggle-voice" class="icon-btn tooltip" data-tooltip="Toggle Voice Output">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                    <button class="icon-btn tooltip" data-tooltip="Settings">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat-messages" id="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! I'm Nova, your AI assistant powered by Gemini. You can type a message or tap the microphone to speak with me!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="typing-indicator hidden" id="typing-indicator">
+                <span></span><span></span><span></span>
+            </div>
+
+            <footer class="chat-input-area">
+                <div class="input-container glass-panel-inner">
+                    <button id="mic-btn" class="mic-btn" aria-label="Start Voice Recording">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                    <input type="text" id="text-input" placeholder="Message Nova or click mic to speak..." autocomplete="off">
+                    <button id="send-btn" class="send-btn" aria-label="Send Message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="voice-status" id="voice-status">Listening...</div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
